@@ -97,7 +97,7 @@ int	ft_is_valid_caracter(char **str)
 	return (1);
 }
 
-
+/*
 int ft_find_position_p(char **map, int *row, int *col)
 {
 	while(map[*col])
@@ -115,7 +115,7 @@ int ft_find_position_p(char **map, int *row, int *col)
 	}
 	return (0);
 }
-
+*/
 char **ft_map_cpy(char **map)
 {
 	int		i;
@@ -195,7 +195,7 @@ int	ft_verif_map(char **result)
 		}
 		i++;
 	}
-	// flood fill 
+	/* flood fill 
 	if (!ft_find_position_p(map, &col, &row))
 	{
 		printf("Position P not found");
@@ -203,5 +203,6 @@ int	ft_verif_map(char **result)
 	}
 	printf("Position P found at col : %d row : %d \n", col, row);
 	map = ft_flood_map(map, col, row);
+	*/
 	return (1);
 }
