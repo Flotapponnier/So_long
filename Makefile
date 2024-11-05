@@ -1,5 +1,5 @@
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -I./includes/ -I./libft/includes
+CFLAGS = -Wall -Wextra -Werror -I../includes/ -I./libft/includes
 RM = rm -rf
 NAME = so_long
 
