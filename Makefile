@@ -1,10 +1,16 @@
-CC = cc
-CFLAGS = -Wall -Wextra -Werror -I../includes/ -I./libft/includes
+CC = cc 
+CFLAGS = -Wall -Wextra -Werror -I./includes/ -I./libft/includes
 RM = rm -rf
 NAME = so_long
 
-SRCS = srcs/so_long.c srcs/verify_map.c
-OBJS = $(SRCS:.c=.o)
+SRCS = srcs/so_long.c
+SRCSMAPVERIF = srcs/map_verification/verify_map.c \
+			   srcs/map_verification/utils/mapvalid_utils.c \
+			   srcs/map_verification/utils/ismap_valid.c \
+			   srcs/map_verification/utils/floodmap.c
+
+# Combine both source variables
+OBJS = $(SRCS:.c=.o) $(SRCSMAPVERIF:.c=.o)
 
 all: $(NAME)
 
