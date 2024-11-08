@@ -8,7 +8,7 @@
 #include <mlx.h>
 #include "libft.h"
 
-
+#define MAX_LINES 100
 
 //def MLX PART #define MAX_LINES 100
 #define LIGHT_BROWN_COLOR 0xD2B48C
