@@ -67,11 +67,16 @@ void ft_print_map(char **map);
 int launch_game(char **mappi);
 void draw_map(t_data *data);
 void fill_background(t_data *data, int color);
+
+ //event
 int handle_key_event(int keycode, t_data *data);
+int is_valid_movement(char target);
 void move_player_up(t_data *data);
 void move_player_down(t_data *data);
 void move_player_left(t_data *data);
 void move_player_right(t_data *data);
+
+//initialisation
 void get_image(t_data *data);
 void get_window_size(char **map, int *height, int *width, t_data *data);
 void print_map(char **map);

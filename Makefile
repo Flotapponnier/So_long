@@ -8,7 +8,13 @@ SRCSMAPVERIF = srcs/map_verification/verify_map.c \
                srcs/map_verification/utils/mapvalid_utils.c \
                srcs/map_verification/utils/ismap_valid.c \
                srcs/map_verification/utils/floodmap.c \
-               srcs/mlx_game/launch_game.c
+               srcs/mlx_game/launch_game.c \
+               srcs/mlx_game/mapping/background.c \
+               srcs/mlx_game/mapping/draw_map.c \
+               srcs/mlx_game/event/key_event.c \
+               srcs/mlx_game/event/player_movement.c \
+               srcs/mlx_game/event/is_move_valid.c \
+			   srcs/mlx_game/initialisation/initialisation.c
 
 # Combine both source variables
 OBJS = $(SRCS:.c=.o) $(SRCSMAPVERIF:.c=.o)
