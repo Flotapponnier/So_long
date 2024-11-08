@@ -1,16 +1,41 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ftapponn <ftapponn@student.42heilbronn.de  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/08 16:24:23 by ftapponn          #+#    #+#             */
+/*   Updated: 2024/11/07 13:11:21 by ftapponn         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <fcntl.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <stddef.h>
 # include <string.h>
-# include <stdio.h>
-# include <fcntl.h>
+# include <stdarg.h>
 
-#ifndef BUFFER_SIZE
-#define BUFFER_SIZE 42
-#endif
+// list
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}					t_list;
+
+t_list	*ft_lstnew(void *content);
+int		ft_lstsize(t_list *list);
+t_list	*ft_lstlast(t_list *list);
+void	ft_lstadd_front(t_list **lst, t_list *new);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+void	ft_lstiter(t_list *lst, void (*f)(void *));
+void	ft_lstclear(t_list **lst, void (*del)(void *));
+void	ft_lstdelone(t_list *lst, void (*del)(void *));
 
 // char classification
 int		ft_isascii(int c);
@@ -58,28 +83,33 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
-//get_next_line
-char	*ft_get_next_line(int fd);
-char	*clean_line_after(char *str);
-char	*clean_line_before(char *str);
-char	*read_line(int fd, char *str);
-void	init_buffer_and_str(char **buffer, char **str);
+// get_next_line
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
-// bonus
-typedef struct s_list
-{
-	void			*content;
-	struct s_list	*next;
-}					t_list;
+# if BUFFER_SIZE <= 0
+#  error "BUFFER_SIZE can't be <= 0"
+# endif
 
-t_list	*ft_lstnew(void *content);
-int		ft_lstsize(t_list *list);
-t_list	*ft_lstlast(t_list *list);
-void	ft_lstadd_front(t_list **lst, t_list *new);
-void	ft_lstadd_back(t_list **lst, t_list *new);
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-void	ft_lstiter(t_list *lst, void (*f)(void *));
-void	ft_lstclear(t_list **lst, void (*del)(void *));
-void	ft_lstdelone(t_list *lst, void (*del)(void *));
+# ifndef OPEN_MAX
+#  define OPEN_MAX 50
+# endif
+
+char	*get_next_line(int fd);
+char	*read_line(int fd, char *overflow_line);
+char	*clean_overflow_line(char *overflow_line);
+char	*clean_line(char *overflow_line);
+char	*my_strjoin(char *s1, char *s2);
+char	*ft_free(char **str);
+
+//ft_printf
+int	ft_printf(const char *format, ...);
+int	ft_print_string(char *str);
+int	ft_print_digit(int nb);
+int	ft_print_hexa(unsigned int nb, int uppercase);
+int	ft_print_unsigned(unsigned int nb);
+int	ft_print_pointer(void *ptr);
+int	ft_print_char(char nb);
 
 #endif

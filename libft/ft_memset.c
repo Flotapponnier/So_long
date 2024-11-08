@@ -1,18 +1,42 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ftapponn <ftapponn@student.42heilbronn.de  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/08 15:57:20 by ftapponn          #+#    #+#             */
+/*   Updated: 2024/10/08 15:57:26 by ftapponn         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
+//#include <stdio.h>
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	size_t			i;
-	unsigned char	*ptr;
+	char	*p;
 
-	if (!s)
-		return (NULL);
-	ptr = (unsigned char *) s;
-	i = 0;
-	while (i < n)
+	p = (char *)s;
+	while (n > 0)
 	{
-		ptr[i] = (unsigned char)c;
-		i++;
+		p[n - 1] = c;
+		n--;
 	}
 	return (s);
 }
+
+/*
+int main()
+{
+    char buffer[50];
+
+    ft_memset(buffer, 'B', 10);
+    buffer[10] = '\0';
+    printf("Buffer after ft_memset with B: '%s'\n", buffer); 
+    ft_memset(buffer, 'A', 10);
+    buffer[10] = '\0';
+    printf("Buffer after ft_memset with 'A': '%s'\n", buffer); 
+    return 0;
+}
+*/

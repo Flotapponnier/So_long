@@ -34,24 +34,27 @@ SRCS	=	ft_atoi.c \
 			ft_substr.c \
 			ft_tolower.c \
 			ft_toupper.c \
-			ft_get_next_line.c
-
-BSRCS 	= 	ft_lstnew.c\
-       		ft_lstadd_front.c\
-       		ft_lstsize.c\
-       		ft_lstlast.c\
-       		ft_lstadd_back.c\
-       		ft_lstdelone.c\
-			ft_lstclear.c\
-			ft_lstiter.c\
-			ft_lstmap.c
+			ft_lstnew.c \
+			ft_lstsize.c \
+			ft_lstlast.c \
+			ft_lstadd_back.c \
+			ft_lstdelone.c \
+			ft_lstclear.c \
+			ft_lstiter.c \
+			ft_lstmap.c \
+			get_next_line/get_next_line.c \
+			get_next_line/my_strjoin.c \
+			ft_printf/srcs/ft_printf.c \
+			ft_printf/srcs/ft_printf_char.c \
+			ft_printf/srcs/ft_printf_digit.c \
+			ft_printf/srcs/ft_printf_hexa.c \
+			ft_printf/srcs/ft_printf_pointer.c \
+			ft_printf/srcs/ft_printf_string.c \
+			ft_printf/srcs/ft_printf_unsigned.c \
 
 OBJS	= ${SRCS:.c=.o}
 
-BOBJS	= ${BSRCS:.c=.o}
-
 CC		= clang
-
 CFLAGS	= -Wall -Wextra -Werror -g
 
 .c.o:
@@ -63,15 +66,9 @@ ${NAME}:	${OBJS}
 all:		${NAME}
 
 clean:
-	rm -f ${OBJS}
-	rm -f ${BOBJS}
+			rm -f ${OBJS}
 
-fclean: clean
-	rm -f ${NAME}
+fclean:		clean
+			rm -f ${NAME}
 
-re: fclean all
-
-bonus: 	${BOBJS}
-	ar -rcs $(NAME) ${BOBJS}
-
-.PHONY: all, bonus, clean, fclean, re
+re:			fclean all

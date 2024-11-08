@@ -6,7 +6,7 @@
 /*   By: ftapponn <ftapponn@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 13:34:42 by ftapponn          #+#    #+#             */
-/*   Updated: 2024/11/05 16:19:30 by ftapponn         ###   ########.fr       */
+/*   Updated: 2024/11/07 14:38:09 by ftapponn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,10 @@ int validate_flood(char **map, int col, int row)
     {
         while(map[i][j])
         {
-            if(!(map[i][j] != '1' && map[i][j] != 'v'))
+            if(map[i][j] != '1' && map[i][j] != 'v' && map[i][j] != '\n')
             {
                 printf("Error map flooding fail");
+                printf(" Caracter %c ", map[i][j]);
                 return (0);
             }
             j++;

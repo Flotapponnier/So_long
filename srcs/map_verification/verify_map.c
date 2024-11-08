@@ -6,52 +6,43 @@
 /*   By: ftapponn <ftapponn@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 10:42:48 by ftapponn          #+#    #+#             */
-/*   Updated: 2024/11/05 16:03:54 by ftapponn         ###   ########.fr       */
+/*   Updated: 2024/11/07 20:01:29 by ftapponn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+#include "libft.h"
 
 char	**ft_get_map(int fd)
 {
-	char	**result;
+	char	**map;
 	int		i;
 	int		j;
-	int		valid_map;
 
-	result = malloc(sizeof(char *) * (MAX_LINES + 1));
-	if (result == NULL)
+	map = malloc(sizeof(char *) * (MAX_LINES + 1));
+	if (!map)
 		return (NULL);
 	i = 0;
 	while (i < MAX_LINES)
 	{
-		result[i] = ft_get_next_line(fd);
-		if (result[i] == NULL)
+		map[i] = get_next_line(fd);
+		if (map[i] == NULL)
 			break ;
 		i++;
 	}
-	result[i] = NULL;
-	valid_map = ft_verif_map(result);
-	if (!valid_map)
+	map[i] = NULL;
+	if(!ft_verif_map(map))
 	{
 		j = 0;
 		while (j < i)
 		{
-			free(result[j]);
+			free(map[j]);
 			j++;
 		}
-		free(result);
+		free(map);
 		return (NULL);
 	}
-	j = 0;
-	while (j < i)
-	{
-		printf("%s", result[j]);
-		free(result[j]);
-		j++;
-	}
-	free(result);
-	return (result);
+	return (map);
 }
 
 
@@ -82,13 +73,16 @@ int	ft_verif_map(char **result)
 		}
 		i++;
 	}
+    if(!is_edge(map))
+        return (0);
 	if (!ft_find_position_p(map, &col, &row))
 	{
 			printf("Position P not found");
 			return (0);
 	}
 	printf("Position P found at col : %d row : %d \n \n", col, row);
-	validate_flood(map, col, row);
+    printf("THIS IS %c \n", map[row][col] );
+	validate_flood(map, row, col);
     printf("\n \n");
 	return (1);
 }

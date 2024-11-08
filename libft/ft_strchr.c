@@ -1,17 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ftapponn <ftapponn@student.42heilbronn.de  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/08 15:59:28 by ftapponn          #+#    #+#             */
+/*   Updated: 2024/10/08 15:59:30 by ftapponn         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-char	*ft_strchr(const char *str, int c)
+char	*ft_strchr(const char *s, int c)
 {
-	int	i ;
+	size_t	i;
 
 	i = 0;
-	while (str[i])
+	while (s[i])
 	{
-		if (str[i] == (char)c)
-			return ((char *)(str + i));
+		if (s[i] == (char) c)
+			break ;
 		i++;
 	}
-	if (c == '\0')
-		return ((char *)(str + i));
+	if (s[i] == (char) c)
+		return ((char *) s + i);
 	return (NULL);
 }

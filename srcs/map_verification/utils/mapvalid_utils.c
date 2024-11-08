@@ -6,7 +6,7 @@
 /*   By: ftapponn <ftapponn@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 12:02:47 by ftapponn          #+#    #+#             */
-/*   Updated: 2024/11/05 14:59:47 by ftapponn         ###   ########.fr       */
+/*   Updated: 2024/11/07 14:48:22 by ftapponn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,18 @@ void ft_print_map(char **map)
     return ;
 }
 
-int	ft_find_position_p(char **map, int *row, int *col)
+int	ft_find_position_p(char **map, int *col, int *row)
 {
-		while(map[*col])
+		while(map[*row])
 		{
-				while(map[*col][*row])
+				while(map[*row][*col])
 				{
-						if(map[*col][*row] == 'P')
+						if(map[*row][*col] == 'P')
 								return (1);
-						(*row)++;
+						(*col)++;
 				}
-				(*row) = 0;
-				(*col)++;
+				(*col) = 0;
+				(*row)++;
 		}
 		return (0);
 }

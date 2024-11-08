@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ftapponn <ftapponn@student.42heilbronn.de  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/08 16:05:28 by ftapponn          #+#    #+#             */
+/*   Updated: 2024/10/08 16:06:20 by ftapponn         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static char	*ft_concatenate(const char *s1, const char *s2, char *result)
@@ -27,16 +39,12 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	size_t	size;
 	char	*result;
 
-	if (!s1 && !s2)
+	if (!s1 || !s2)
 		return (NULL);
-	if (!s1)
-		return (ft_strdup(s2));
-	if (!s2)
-		return (ft_strdup(s1));
 	size = ft_strlen(s1) + ft_strlen(s2);
-	result = (char *)malloc((size + 1) * sizeof(char));
+	result = (char *)malloc((sizeof(char) * size) + 1);
 	if (!result)
 		return (NULL);
-	ft_concatenate(s1, s2, result);
+	result = ft_concatenate(s1, s2, result);
 	return (result);
 }
