@@ -43,6 +43,9 @@ typedef struct s_data {
     char **map; 
 } t_data;
 
+typedef struct s_player_stat {
+    int number_coin;
+} t_player_stat;
 
 //PART 1
 //
@@ -71,6 +74,7 @@ void fill_background(t_data *data, int color);
  //event
 int handle_key_event(int keycode, t_data *data);
 int is_valid_movement(char target);
+int is_victory(char **map);
 void move_player_up(t_data *data);
 void move_player_down(t_data *data);
 void move_player_left(t_data *data);

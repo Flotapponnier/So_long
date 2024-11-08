@@ -36,12 +36,11 @@ int launch_game(char **mappi)
 {
     char **map = ft_map_cpy(mappi);
     t_data data;
+    t_player_stat player;
     int map_width;
     int map_height;
-    int count_coin = 0;
 
-    count_coin = get_number_coin(map);
-    printf(" nb coin %d", count_coin);
+    player.number_coin= get_number_coin(map);
     get_window_size(map, &map_width, &map_height, &data);
     data.map = map;
     data.mlx = mlx_init();

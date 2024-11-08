@@ -6,7 +6,7 @@
 /*   By: ftapponn <ftapponn@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 14:51:01 by ftapponn          #+#    #+#             */
-/*   Updated: 2024/11/08 15:24:08 by ftapponn         ###   ########.fr       */
+/*   Updated: 2024/11/08 16:41:44 by ftapponn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,23 @@ void move_player_up(t_data *data)
             {
                 if (y > 0 && is_valid_movement(data->map[y - 1][x]))
                 {
+                    // Check if the player has reached the exit (E) before moving
+                    if (data->map[y - 1][x] == 'E')
+                    {
+                        if (is_victory(data->map))  // Check if victory condition is met
+                        {
+                            printf("Victory!\n");
+                            return;  // Exit after victory
+                        }
+                    }
+                else
+                {
+                    // Move player
                     data->map[y][x] = '0';
                     data->map[y - 1][x] = 'P';
                     draw_map(data);
                     print_map(data->map);
+                }
                 }
                 return;
             }
@@ -56,10 +69,24 @@ void move_player_left(t_data *data)
             {
                 if (x > 0 && is_valid_movement(data->map[y][x - 1]))
                 {
+                    // Check if the player has reached the exit (E) before moving
+                    if (data->map[y][x - 1] == 'E')
+                    {
+                        if (is_victory(data->map))  // Check if victory condition is met
+                        {
+                            printf("Victory!\n");
+                            return;  // Exit after victory
+                        }
+                    }
+
+                    // Move player
+                    else
+                    {
                     data->map[y][x] = '0';
                     data->map[y][x - 1] = 'P';
                     draw_map(data);
                     print_map(data->map);
+                    }
                 }
                 return;
             }
@@ -84,10 +111,24 @@ void move_player_down(t_data *data)
             {
                 if (data->map[y + 1] && is_valid_movement(data->map[y + 1][x]))
                 {
+                    // Check if the player has reached the exit (E) before moving
+                    if (data->map[y + 1][x] == 'E')
+                    {
+                        if (is_victory(data->map))  // Check if victory condition is met
+                        {
+                            printf("Victory!\n");
+                            return;  // Exit after victory
+                        }
+                    }
+
+                    else
+                    {
+                    // Move player
                     data->map[y][x] = '0';
                     data->map[y + 1][x] = 'P';
                     draw_map(data);
                     print_map(data->map);
+                    }
                 }
                 return;
             }
@@ -112,10 +153,24 @@ void move_player_right(t_data *data)
             {
                 if (is_valid_movement(data->map[y][x + 1]))
                 {
+                    // Check if the player has reached the exit (E) before moving
+                    if (data->map[y][x + 1] == 'E')
+                    {
+                        if (is_victory(data->map))  // Check if victory condition is met
+                        {
+                            printf("Victory!\n");
+                            return;  // Exit after victory
+                        }
+                    }
+
+                    else
+                    {
+                    // Move player
                     data->map[y][x] = '0';
                     data->map[y][x + 1] = 'P';
                     draw_map(data);
                     print_map(data->map);
+                    }
                 }
                 return;
             }
