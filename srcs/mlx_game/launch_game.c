@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   launch_game.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ftapponn <ftapponn@student.42heilbronn.de  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/10 16:17:38 by ftapponn          #+#    #+#             */
+/*   Updated: 2024/11/10 16:17:41 by ftapponn         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <so_long.h>
 
 void	print_map(char **map)
@@ -7,10 +19,10 @@ void	print_map(char **map)
 	y = 0;
 	while (map[y] != NULL)
 	{
-		printf("%s\n", map[y]);
+		ft_printf("%s\n", map[y]);
 		y++;
 	}
-	printf("\n");
+	ft_printf("\n");
 }
 
 int	launch_game(char **mappi)
@@ -25,23 +37,16 @@ int	launch_game(char **mappi)
 	data.map = map;
 	data.mlx = mlx_init();
 	if (!data.mlx)
-	{
-		printf("Erreur: Impossible d'initialiser MiniLibX\n");
-		return (1);
-	}
+		return (get_error(MLX_ERROR));
 	get_image(&data);
 	if (!data.img_block || !data.img_player || !data.img_exit || !data.img_coin)
-	{
-		printf("Erreur: Impossible de charger une des images\n");
-		return (1);
-	}
+		return (get_error(IMG_ERROR));
 	data.window = mlx_new_window(data.mlx, data.win_width, data.win_height,
-			"Map Display");
+			"The world of Boba");
 	if (!data.window)
 	{
 		free(data.mlx);
-		printf("Erreur: Impossible de créer la fenêtre\n");
-		return (1);
+		return (get_error(WINDOW_ERROR));
 	}
 	fill_background(&data, LIGHT_BROWN_COLOR);
 	draw_map(&data);

@@ -4,3 +4,6 @@
 4 - Other caracter than 1 on edge
 5 - Can't find player position on the map
 6 - Problem with flood filling the map
+7 - Problem with mlx initialisation
+8 - Problem with loading images
+9 - Problem with charging window

@@ -6,7 +6,7 @@
 /*   By: ftapponn <ftapponn@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 12:27:17 by ftapponn          #+#    #+#             */
-/*   Updated: 2024/11/10 15:37:16 by ftapponn         ###   ########.fr       */
+/*   Updated: 2024/11/10 16:08:04 by ftapponn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@
 # define KEY_S 1    // S
 # define KEY_D 2    // D
 # define KEY_ESC 53 // Échap
+# define KEY_CLOSE 17
 
 // ERROR HANDLING
 # define FD_ERROR 1
@@ -46,6 +47,9 @@
 # define EDGE_ERROR 4
 # define P_POSITION_ERROR 5
 # define FLOOD_ERROR 6
+# define MLX_ERROR 7
+# define IMG_ERROR 8
+# define WINDOW_ERROR 9
 
 typedef struct s_map_info
 {
