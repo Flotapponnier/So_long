@@ -8,18 +8,18 @@ SRCSMAPVERIF = srcs/map_verification/verify_map.c \
                srcs/map_verification/utils/mapvalid_utils.c \
                srcs/map_verification/utils/ismap_valid.c \
                srcs/map_verification/utils/floodmap.c \
+               srcs/map_verification/utils/check_row.c \
                srcs/mlx_game/launch_game.c \
                srcs/mlx_game/mapping/background.c \
                srcs/mlx_game/mapping/draw_map.c \
                srcs/mlx_game/event/key_event.c \
                srcs/mlx_game/event/player_movement.c \
                srcs/mlx_game/event/is_move_valid.c \
-			   srcs/mlx_game/initialisation/initialisation.c
+               srcs/error/error.c \
+               srcs/mlx_game/initialisation/initialisation.c
 
-# Combine both source variables
 OBJS = $(SRCS:.c=.o) $(SRCSMAPVERIF:.c=.o)
 
-# Conditional to differentiate between macOS and Linux
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S), Darwin)
     LFLAGS = -L./mlx -lmlx -lz -framework OpenGL -framework AppKit  # For macOS
@@ -27,26 +27,23 @@ else
     LFLAGS = -L./mlx -lmlx -lz -lX11 -lXext -lXrender -lm  # For Linux
 endif
 
-# Default rule to build the project
 all: $(NAME)
 
 # Linking object files and creating the executable
 $(NAME): $(OBJS)
+	$(MAKE) -C ./libft  # Ensure libft is built
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LFLAGS) -Llibft -lft
 
-# Clean object files
 clean:
-	$(MAKE) clean -C ./libft
+	$(MAKE) clean -C ./libft  # Clean libft
 	$(RM) $(OBJS)
 
-# Clean object and binary files
 fclean: clean
-	$(MAKE) fclean -C ./libft
+	$(MAKE) fclean -C ./libft  # Clean libft completely
 	$(RM) $(NAME)
 
-# Rebuild everything
 re: fclean all
 
-# Phony targets to avoid conflicts with file names
-.PHONY: all clean fclean re
+libft:
+	$(MAKE) -C ./libft
 

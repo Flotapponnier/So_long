@@ -6,36 +6,36 @@
 /*   By: ftapponn <ftapponn@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 12:02:47 by ftapponn          #+#    #+#             */
-/*   Updated: 2024/11/07 14:48:22 by ftapponn         ###   ########.fr       */
+/*   Updated: 2024/11/10 15:36:44 by ftapponn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void ft_print_map(char **map)
+void	ft_print_map(char **map)
 {
-    int i;
+	int	i;
 
-    i = -1;
-    while(map[++i])
-        printf("%s", map[i]);
-    return ;
+	i = -1;
+	while (map[++i])
+		printf("%s", map[i]);
+	return ;
 }
 
 int	ft_find_position_p(char **map, int *col, int *row)
 {
-		while(map[*row])
+	while (map[*row])
+	{
+		while (map[*row][*col])
 		{
-				while(map[*row][*col])
-				{
-						if(map[*row][*col] == 'P')
-								return (1);
-						(*col)++;
-				}
-				(*col) = 0;
-				(*row)++;
+			if (map[*row][*col] == 'P')
+				return (1);
+			(*col)++;
 		}
-		return (0);
+		(*col) = 0;
+		(*row)++;
+	}
+	return (0);
 }
 
 char	**ft_map_cpy(char **map)
@@ -66,3 +66,24 @@ char	**ft_map_cpy(char **map)
 	return (map_cpy);
 }
 
+int	free_map(char **map, int errnum)
+{
+	int	i;
+
+	if (errnum)
+	{
+		get_error(errnum);
+	}
+	if (!map)
+	{
+		return (0);
+	}
+	i = 0;
+	while (map[i])
+	{
+		free(map[i]);
+		i++;
+	}
+	free(map);
+	return (0);
+}

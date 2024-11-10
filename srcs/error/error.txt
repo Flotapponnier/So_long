@@ -1,0 +1,6 @@
+1 - File descriptor map not findable
+2 - Map have invalid caracter
+3 - Map is not rectangular form
+4 - Other caracter than 1 on edge
+5 - Can't find player position on the map
+6 - Problem with flood filling the map

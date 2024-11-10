@@ -6,18 +6,17 @@
 /*   By: ftapponn <ftapponn@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 10:42:48 by ftapponn          #+#    #+#             */
-/*   Updated: 2024/11/07 20:01:29 by ftapponn         ###   ########.fr       */
+/*   Updated: 2024/11/10 15:36:57 by ftapponn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
 #include "libft.h"
+#include "so_long.h"
 
 char	**ft_get_map(int fd)
 {
 	char	**map;
 	int		i;
-	int		j;
 
 	map = malloc(sizeof(char *) * (MAX_LINES + 1));
 	if (!map)
@@ -31,20 +30,13 @@ char	**ft_get_map(int fd)
 		i++;
 	}
 	map[i] = NULL;
-	if(!ft_verif_map(map))
+	if (!ft_verif_map(map))
 	{
-		j = 0;
-		while (j < i)
-		{
-			free(map[j]);
-			j++;
-		}
-		free(map);
+		free_map(map, 0);
 		return (NULL);
 	}
 	return (map);
 }
-
 
 int	ft_verif_map(char **result)
 {
@@ -60,29 +52,17 @@ int	ft_verif_map(char **result)
 	row = 0;
 	count_row = ft_strlen(map[i]);
 	if (!is_map_correct_format(map))
-	{
-		printf("Error invalid caracter \n");
-		return (0);
-	}
-	while (map[i])
+		return (free_map(map, FORMAT_ERROR));
+	while (map[++i])
 	{
 		if (!is_rectangle(map[i], count_row))
-		{
-			printf("Error : width problem \n");
-			return (0);
-		}
-		i++;
+			return (free_map(map, RECTANGLE_ERROR));
 	}
-    if(!is_edge(map))
-        return (0);
+	if (!is_edge(map))
+		return (free_map(map, EDGE_ERROR));
 	if (!ft_find_position_p(map, &col, &row))
-	{
-			printf("Position P not found");
-			return (0);
-	}
-	printf("Position P found at col : %d row : %d \n \n", col, row);
-    printf("THIS IS %c \n", map[row][col] );
-	validate_flood(map, row, col);
-    printf("\n \n");
+		return (free_map(map, P_POSITION_ERROR));
+	if (!validate_flood(map, row, col))
+		return (free_map(map, FLOOD_ERROR));
 	return (1);
 }

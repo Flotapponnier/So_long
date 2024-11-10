@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: szerisen <szerisen@student.42.fr>          +#+  +:+       +#+         #
+#    By: ftapponn <ftapponn@student.42heilbronn.de  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/12/08 17:20:08 by szerisen          #+#    #+#              #
-#    Updated: 2023/04/19 12:08:46 by szerisen         ###   ########.fr        #
+#    Created: 2024/11/10 13:44:10 by ftapponn          #+#    #+#              #
+#    Updated: 2024/11/10 13:44:44 by ftapponn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

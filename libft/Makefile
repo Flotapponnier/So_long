@@ -54,7 +54,7 @@ SRCS	=	ft_atoi.c \
 
 OBJS	= ${SRCS:.c=.o}
 
-CC		= clang
+CC		= cc
 CFLAGS	= -Wall -Wextra -Werror -g
 
 .c.o:
