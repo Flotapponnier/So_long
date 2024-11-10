@@ -13,7 +13,11 @@ SRCSMAPVERIF = srcs/map_verification/verify_map.c \
                srcs/mlx_game/mapping/background.c \
                srcs/mlx_game/mapping/draw_map.c \
                srcs/mlx_game/event/key_event.c \
-               srcs/mlx_game/event/player_movement.c \
+               srcs/mlx_game/event/movement/player_movement_right.c \
+               srcs/mlx_game/event/movement/player_movement_up.c \
+               srcs/mlx_game/event/movement/player_movement_left.c \
+               srcs/mlx_game/event/movement/player_movement_down.c \
+			   srcs/mlx_game/event/movement/player_movement_utils.c \
                srcs/mlx_game/event/is_move_valid.c \
                srcs/error/error.c \
                srcs/mlx_game/initialisation/initialisation.c

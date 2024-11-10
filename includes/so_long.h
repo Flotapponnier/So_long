@@ -6,7 +6,7 @@
 /*   By: ftapponn <ftapponn@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 12:27:17 by ftapponn          #+#    #+#             */
-/*   Updated: 2024/11/10 16:08:04 by ftapponn         ###   ########.fr       */
+/*   Updated: 2024/11/10 19:13:56 by ftapponn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@
 # define MLX_ERROR 7
 # define IMG_ERROR 8
 # define WINDOW_ERROR 9
+# define ARGUMENT_ERROR 10
 
 typedef struct s_map_info
 {
@@ -115,6 +116,11 @@ void		fill_background(t_data *data, int color);
 int			handle_key_event(int keycode, t_data *data);
 int			is_valid_movement(char target);
 int			is_victory(char **map);
+int			find_player_y(t_data *data);
+int			find_player_x(t_data *data, int y);
+int			check_exit_condition(t_data *data, int y, int x);
+
+// movement
 void		move_player_up(t_data *data);
 void		move_player_down(t_data *data);
 void		move_player_left(t_data *data);

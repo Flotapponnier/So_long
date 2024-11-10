@@ -6,7 +6,7 @@
 /*   By: ftapponn <ftapponn@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 16:17:38 by ftapponn          #+#    #+#             */
-/*   Updated: 2024/11/10 16:17:41 by ftapponn         ###   ########.fr       */
+/*   Updated: 2024/11/10 19:17:11 by ftapponn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,12 @@ void	print_map(char **map)
 
 int	launch_game(char **mappi)
 {
-	char			**map;
-	t_data			data;
-	int				map_width;
-	int				map_height;
+	t_data	data;
+	int		map_width;
+	int		map_height;
 
-	map = ft_map_cpy(mappi);
-	get_window_size(map, &map_width, &map_height, &data);
-	data.map = map;
+	data.map = ft_map_cpy(mappi);
+	get_window_size(data.map, &map_width, &map_height, &data);
 	data.mlx = mlx_init();
 	if (!data.mlx)
 		return (get_error(MLX_ERROR));
@@ -50,7 +48,6 @@ int	launch_game(char **mappi)
 	}
 	fill_background(&data, LIGHT_BROWN_COLOR);
 	draw_map(&data);
-	print_map(data.map);
 	mlx_key_hook(data.window, handle_key_event, &data);
 	mlx_loop(data.mlx);
 	return (0);
