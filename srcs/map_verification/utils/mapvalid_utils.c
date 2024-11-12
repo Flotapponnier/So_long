@@ -6,21 +6,12 @@
 /*   By: ftapponn <ftapponn@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 12:02:47 by ftapponn          #+#    #+#             */
-/*   Updated: 2024/11/10 15:36:44 by ftapponn         ###   ########.fr       */
+/*   Updated: 2024/11/12 12:59:23 by ftapponn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_print_map(char **map)
-{
-	int	i;
-
-	i = -1;
-	while (map[++i])
-		printf("%s", map[i]);
-	return ;
-}
 
 int	ft_find_position_p(char **map, int *col, int *row)
 {

@@ -6,7 +6,7 @@
 /*   By: ftapponn <ftapponn@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 16:32:29 by ftapponn          #+#    #+#             */
-/*   Updated: 2024/11/12 12:56:59 by ftapponn         ###   ########.fr       */
+/*   Updated: 2024/11/12 13:27:07 by ftapponn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,19 @@
 
 static int	check_exit_condition_right(t_data *data, int y, int x)
 {
-	if (data->map[y][x + 1] == 'E' && is_victory(data->map))
+	if (data->map[y][x + 1] == 'E')
 	{
-		printf("Victory!\n");
-		return (1);
+		if (is_victory(data->map))
+		{
+			printf("Victory!\n");
+            exit_game(data);
+			return (1);
+		}
+		else
+		{
+			printf("Come back when you have all the pearls\n");
+			return (-1);
+		}
 	}
 	return (0);
 }
@@ -33,6 +42,7 @@ void	move_player_right(t_data *data)
 {
 	int	y;
 	int	x;
+	int	exit_check;
 
 	y = find_player_y(data);
 	if (y == -1)
@@ -42,8 +52,12 @@ void	move_player_right(t_data *data)
 		return ;
 	if (is_valid_movement(data->map[y][x + 1]))
 	{
-		if (check_exit_condition_right(data, y, x))
+		exit_check = check_exit_condition_right(data, y, x);
+		if (exit_check == 1) // Victory conditions met
+			return ;
+		else if (exit_check == -1) // Victory conditions not met
 			return ;
 		move_player_right_action(data, y, x);
 	}
 }
+

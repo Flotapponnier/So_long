@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   background.c                                       :+:      :+:    :+:   */
+/*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ftapponn <ftapponn@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 14:58:48 by ftapponn          #+#    #+#             */
-/*   Updated: 2024/11/08 17:07:39 by ftapponn         ###   ########.fr       */
+/*   Created: 2024/11/12 13:16:36 by ftapponn          #+#    #+#             */
+/*   Updated: 2024/11/12 13:21:17 by ftapponn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void	fill_background(t_data *data, int color)
+void	exit_game(t_data *data)
 {
-	int	x;
-	int	y;
-
-	x = 0;
-	y = 0;
-	while (y < data->win_height)
-	{
-		x = 0;
-		while (x < data->win_width)
-		{
-			mlx_pixel_put(data->mlx, data->window, x, y, color);
-			x++;
-		}
-		y++;
-	}
+	free_map(data->map, 0);
+	mlx_destroy_image(data->mlx, data->img_block);
+	mlx_destroy_image(data->mlx, data->img_player);
+	mlx_destroy_image(data->mlx, data->img_exit);
+	mlx_destroy_image(data->mlx, data->img_coin);
+	mlx_destroy_image(data->mlx, data->img_floor);
+	if (data->window)
+		mlx_destroy_window(data->mlx, data->window);
+	free(data->mlx);
+	exit(0);
 }

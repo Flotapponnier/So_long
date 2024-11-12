@@ -8,3 +8,4 @@
 8 - Problem with loading images
 9 - Problem with charging window
 10 - Invalid number of Argument.
+11 - Invalid map extensions (not .ber)

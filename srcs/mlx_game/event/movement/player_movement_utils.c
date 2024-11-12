@@ -6,7 +6,7 @@
 /*   By: ftapponn <ftapponn@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 16:47:36 by ftapponn          #+#    #+#             */
-/*   Updated: 2024/11/10 18:40:42 by ftapponn         ###   ########.fr       */
+/*   Updated: 2024/11/12 13:10:01 by ftapponn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,3 @@ int	find_player_x(t_data *data, int y)
 	return (-1);
 }
 
-int	check_exit_condition(t_data *data, int y, int x)
-{
-	if (data->map[y + 1][x] == 'E' && is_victory(data->map))
-	{
-		printf("Victory!\n");
-		return (1);
-	}
-	return (0);
-}

@@ -6,7 +6,7 @@
 /*   By: ftapponn <ftapponn@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 14:55:38 by ftapponn          #+#    #+#             */
-/*   Updated: 2024/11/12 12:50:02 by ftapponn         ###   ########.fr       */
+/*   Updated: 2024/11/12 13:25:10 by ftapponn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,7 @@ int	handle_key_event(int keycode, t_data *data)
 		move_player_down(data);
 	else if (keycode == KEY_D)
 		move_player_right(data);
-	else if (keycode == KEY_ESC || keycode == KEY_CLOSE)
-	{
-		mlx_destroy_window(data->mlx, data->window);
-		exit(0);
-	}
+	else if (keycode == KEY_ESC)
+        exit_game(data);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ftapponn <ftapponn@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 13:34:42 by ftapponn          #+#    #+#             */
-/*   Updated: 2024/11/10 11:35:57 by ftapponn         ###   ########.fr       */
+/*   Updated: 2024/11/12 12:59:33 by ftapponn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ int	validate_flood(char **map, int col, int row)
 	int	j;
 
 	map = ft_flood_map(map, col, row);
-	ft_print_map(map);
 	i = 0;
 	j = 0;
 	while (map[i])

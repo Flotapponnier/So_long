@@ -6,7 +6,7 @@
 /*   By: ftapponn <ftapponn@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 12:27:17 by ftapponn          #+#    #+#             */
-/*   Updated: 2024/11/12 12:44:59 by ftapponn         ###   ########.fr       */
+/*   Updated: 2024/11/12 13:33:32 by ftapponn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@
 # define KEY_S 1    // S
 # define KEY_D 2    // D
 # define KEY_ESC 53 // Échap
-# define KEY_CLOSE 17
 
 // ERROR HANDLING
 # define FD_ERROR 1
@@ -52,6 +51,7 @@
 # define IMG_ERROR 8
 # define WINDOW_ERROR 9
 # define ARGUMENT_ERROR 10
+# define EXTENSION_ERROR 11
 
 typedef struct s_map_info
 {
@@ -132,6 +132,9 @@ void		move_player_right(t_data *data);
 void		get_image(t_data *data);
 void		get_window_size(char **map, int *height, int *width, t_data *data);
 void		print_map(char **map);
+
+// exit
+void exit_game(t_data *data);
 
 // error
 int			get_error(int errnum);
