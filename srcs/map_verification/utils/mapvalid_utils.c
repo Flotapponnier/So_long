@@ -6,12 +6,11 @@
 /*   By: ftapponn <ftapponn@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 12:02:47 by ftapponn          #+#    #+#             */
-/*   Updated: 2024/11/12 12:59:23 by ftapponn         ###   ########.fr       */
+/*   Updated: 2024/11/12 13:39:19 by ftapponn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
 
 int	ft_find_position_p(char **map, int *col, int *row)
 {

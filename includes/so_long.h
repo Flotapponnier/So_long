@@ -6,7 +6,7 @@
 /*   By: ftapponn <ftapponn@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 12:27:17 by ftapponn          #+#    #+#             */
-/*   Updated: 2024/11/12 13:33:32 by ftapponn         ###   ########.fr       */
+/*   Updated: 2024/11/12 13:39:51 by ftapponn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ typedef struct s_data
 	void	*img_player;
 	void	*img_exit;
 	void	*img_coin;
-    void    *img_floor;
+	void	*img_floor;
 	int		img_width;
 	int		img_height;
 	int		win_width;
@@ -134,7 +134,7 @@ void		get_window_size(char **map, int *height, int *width, t_data *data);
 void		print_map(char **map);
 
 // exit
-void exit_game(t_data *data);
+void		exit_game(t_data *data);
 
 // error
 int			get_error(int errnum);

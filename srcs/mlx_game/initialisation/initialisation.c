@@ -6,7 +6,7 @@
 /*   By: ftapponn <ftapponn@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 14:47:22 by ftapponn          #+#    #+#             */
-/*   Updated: 2024/11/12 12:46:57 by ftapponn         ###   ########.fr       */
+/*   Updated: 2024/11/12 13:36:27 by ftapponn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	get_window_size(char **map, int *height, int *width, t_data *data)
 		if (map[0][*width - 1] == '\n')
 			(*width)--;
 	}
-
 	data->win_width = (*width) * IMAGE_SIZE;
 	data->win_height = (*height) * IMAGE_SIZE;
 }

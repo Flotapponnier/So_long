@@ -6,7 +6,7 @@
 /*   By: ftapponn <ftapponn@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 16:47:36 by ftapponn          #+#    #+#             */
-/*   Updated: 2024/11/12 13:10:01 by ftapponn         ###   ########.fr       */
+/*   Updated: 2024/11/12 13:38:35 by ftapponn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,3 @@ int	find_player_x(t_data *data, int y)
 	}
 	return (-1);
 }
-

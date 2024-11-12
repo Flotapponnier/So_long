@@ -6,7 +6,7 @@
 /*   By: ftapponn <ftapponn@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 16:31:40 by ftapponn          #+#    #+#             */
-/*   Updated: 2024/11/12 13:26:38 by ftapponn         ###   ########.fr       */
+/*   Updated: 2024/11/12 13:37:01 by ftapponn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	check_exit_condition_down(t_data *data, int y, int x)
 		if (is_victory(data->map))
 		{
 			printf("Victory!\n");
-            exit_game(data);
+			exit_game(data);
 			return (1);
 		}
 		else
@@ -53,11 +53,10 @@ void	move_player_down(t_data *data)
 	if (data->map[y + 1] && is_valid_movement(data->map[y + 1][x]))
 	{
 		exit_check = check_exit_condition_down(data, y, x);
-		if (exit_check == 1) // Victory conditions met
+		if (exit_check == 1)
 			return ;
-		else if (exit_check == -1) // Victory conditions not met
+		else if (exit_check == -1)
 			return ;
 		move_player(data, y, x);
 	}
 }
-

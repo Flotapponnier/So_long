@@ -6,7 +6,7 @@
 /*   By: ftapponn <ftapponn@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 14:55:38 by ftapponn          #+#    #+#             */
-/*   Updated: 2024/11/12 13:25:10 by ftapponn         ###   ########.fr       */
+/*   Updated: 2024/11/12 13:36:42 by ftapponn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ int	handle_key_event(int keycode, t_data *data)
 	else if (keycode == KEY_D)
 		move_player_right(data);
 	else if (keycode == KEY_ESC)
-        exit_game(data);
+		exit_game(data);
 	return (0);
 }

@@ -6,11 +6,12 @@
 /*   By: ftapponn <ftapponn@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 13:16:36 by ftapponn          #+#    #+#             */
-/*   Updated: 2024/11/12 13:21:17 by ftapponn         ###   ########.fr       */
+/*   Updated: 2024/11/12 13:38:51 by ftapponn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
 void	exit_game(t_data *data)
 {
 	free_map(data->map, 0);
