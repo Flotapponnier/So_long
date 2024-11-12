@@ -6,7 +6,7 @@
 /*   By: ftapponn <ftapponn@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 12:27:17 by ftapponn          #+#    #+#             */
-/*   Updated: 2024/11/10 19:13:56 by ftapponn         ###   ########.fr       */
+/*   Updated: 2024/11/12 12:44:59 by ftapponn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 # define PATH_IMG_EXIT "./sprite/door.png"
 # define PATH_IMG_COIN "./sprite/perle.png"
 # define PATH_IMG_BLOCK "./sprite/tree.png"
+# define PATH_IMG_FLOOR "./sprite/floor.png"
 
 // KEY EVENT
 # define KEY_W 13   // W
@@ -69,6 +70,7 @@ typedef struct s_data
 	void	*img_player;
 	void	*img_exit;
 	void	*img_coin;
+    void    *img_floor;
 	int		img_width;
 	int		img_height;
 	int		win_width;

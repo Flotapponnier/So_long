@@ -6,7 +6,7 @@
 /*   By: ftapponn <ftapponn@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 16:29:52 by ftapponn          #+#    #+#             */
-/*   Updated: 2024/11/10 18:41:23 by ftapponn         ###   ########.fr       */
+/*   Updated: 2024/11/12 12:56:02 by ftapponn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ static void	move_player_up_action(t_data *data, int y, int x)
 	data->map[y][x] = '0';
 	data->map[y - 1][x] = 'P';
 	draw_map(data);
-	print_map(data->map);
 }
 
 void	move_player_up(t_data *data)

@@ -6,7 +6,7 @@
 /*   By: ftapponn <ftapponn@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 16:17:38 by ftapponn          #+#    #+#             */
-/*   Updated: 2024/11/10 19:17:11 by ftapponn         ###   ########.fr       */
+/*   Updated: 2024/11/12 12:38:01 by ftapponn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ int	launch_game(char **mappi)
 		free(data.mlx);
 		return (get_error(WINDOW_ERROR));
 	}
-	fill_background(&data, LIGHT_BROWN_COLOR);
 	draw_map(&data);
 	mlx_key_hook(data.window, handle_key_event, &data);
 	mlx_loop(data.mlx);
