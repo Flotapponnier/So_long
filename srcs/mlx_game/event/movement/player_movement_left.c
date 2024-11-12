@@ -6,7 +6,7 @@
 /*   By: ftapponn <ftapponn@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 16:30:22 by ftapponn          #+#    #+#             */
-/*   Updated: 2024/11/12 13:37:24 by ftapponn         ###   ########.fr       */
+/*   Updated: 2024/11/12 18:40:21 by ftapponn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ static int	check_exit_condition_left(t_data *data, int y, int x)
 	{
 		if (is_victory(data->map))
 		{
-			printf("Victory!\n");
+			ft_printf("Victory!\n");
 			exit_game(data);
 			return (1);
 		}
 		else
 		{
-			printf("Come back when you have all the pearls\n");
+			ft_printf("Come back when you have all the pearls\n");
 			return (-1);
 		}
 	}
