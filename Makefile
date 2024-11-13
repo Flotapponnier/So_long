@@ -11,7 +11,6 @@ SRCSMAPVERIF = srcs/map_verification/verify_map.c \
                srcs/map_verification/utils/check_row.c \
                srcs/mlx_game/launch_game.c \
                srcs/mlx_game/exit/exit.c \
-               srcs/mlx_game/mapping/background.c \
                srcs/mlx_game/mapping/draw_map.c \
                srcs/mlx_game/event/key_event.c \
                srcs/mlx_game/event/movement/player_movement_right.c \
