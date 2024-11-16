@@ -6,7 +6,7 @@
 /*   By: ftapponn <ftapponn@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 11:14:43 by ftapponn          #+#    #+#             */
-/*   Updated: 2024/11/12 13:39:01 by ftapponn         ###   ########.fr       */
+/*   Updated: 2024/11/16 19:50:31 by ftapponn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ int	main(int argc, char **argv)
 	char	**map;
 	char	filepath[256];
 
+	if (argc != 2)
+		return (get_error(ARGUMENT_ERROR));
 	if (ft_strncmp(argv[1] + ft_strlen(argv[1]) - 4, ".ber", 4) != 0)
 		return (get_error(EXTENSION_ERROR));
 	ft_strlcpy(filepath, "maps/", sizeof(filepath));
-	if (argc != 2)
-		return (get_error(ARGUMENT_ERROR));
 	ft_strlcat(filepath, argv[1], sizeof(filepath));
 	fd = open(filepath, O_RDONLY);
 	if (fd < 0)
