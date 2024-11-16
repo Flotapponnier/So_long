@@ -6,7 +6,7 @@
 /*   By: ftapponn <ftapponn@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 16:17:38 by ftapponn          #+#    #+#             */
-/*   Updated: 2024/11/12 12:38:01 by ftapponn         ###   ########.fr       */
+/*   Updated: 2024/11/16 11:44:54 by ftapponn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	launch_game(char **mappi)
 		return (get_error(MLX_ERROR));
 	get_image(&data);
 	if (!data.img_block || !data.img_player || !data.img_exit || !data.img_coin)
-		return (get_error(IMG_ERROR));
+		return (free(data.mlx), get_error(IMG_ERROR));
 	data.window = mlx_new_window(data.mlx, data.win_width, data.win_height,
 			"The world of Boba");
 	if (!data.window)
